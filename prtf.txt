@@ -1,0 +1,11 @@
+<div class="col-md-5 mb-4 text-center" data-aos="fade-right">
+                    <div style="display: inline-block; position: relative;">
+                        <img src="profil.jpg" class="img-fluid shadow-lg" alt="Profile" style="
+                height: 550px; /* Sedikit lebih tinggi biar proporsional */
+                width: auto;
+                object-fit: cover;
+                border-radius: 1000px; /* Ini rahasianya biar jadi kapsul sempurna */
+                border: 2px solid var(--neon-green); /* List hijau tipis */
+                box-shadow: 0 0 25px rgba(0, 255, 65, 0.2); /* Glow di sekeliling */">
+                    </div>
+                </div>

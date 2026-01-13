@@ -4,141 +4,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portofolio | Data Portfolio</title>
+    <title>My Portofolio | Fullstack & Data</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- TEMA: MODERN GLASS x NEON GREEN --- */
+        /* --- TEMA: FOREST PROFESSIONAL --- */
+        /* COPY BAGIAN INI KE STYLE LO */
         :root {
-            --neon-green: #00ff41;
-            /* Hijau Nyala */
-            --dark-bg: #0a0f0d;
-            /* Hitam Kehijauan Gelap */
-            --glass-white: rgba(255, 255, 255, 0.05);
+            /* HIJAU TETAP SAMA */
+            --primary-green: #3a7d58;
+
+            --dark-bg: #1c1917;
+            /* Hitam Hangat (Stone) */
+            --card-bg: #292524;
+            /* Stone yang lebih terang */
+            --border-color: #44403c;
+            /* Border hangat */
+
+            /* Teks tetap sama */
+            --text-muted: #a1a1aa;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            /* Balik ke Font Modern */
+            font-family: 'Inter', sans-serif;
             background-color: var(--dark-bg);
-            color: #e2e8f0;
+            color: #f3f4f6;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Navbar Glass Effect */
+        /* Navbar */
         .navbar {
-            background: rgba(10, 15, 13, 0.85);
+            background: rgba(28, 25, 23, 0.95);
+            /* Ikutin warna --dark-bg (#1c1917) tapi transparan */
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+            /* Efek blur biar makin smooth */
+            border-bottom: 1px solid #44403c;
+            /* Border hangat tipis */
         }
 
         /* Hero Section */
         .hero-section {
-            padding: 180px 0 100px;
-            /* Gradient Background Halus */
-            background: radial-gradient(circle at top right, rgba(0, 255, 65, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at bottom left, rgba(0, 100, 50, 0.1) 0%, transparent 40%);
+            padding: 160px 0 100px;
+            background: var(--dark-bg);
         }
 
-        /* Teks Gradasi Hijau Mewah */
-        .gradient-text {
-            /* MATIKAN FITUR GRADASI */
-            background: none;
-            -webkit-text-fill-color: initial;
-
-            /* GANTI JADI WARNA HIJAU SOLID */
-            color: #00ff41;
-            /* Ini kode warna Hijau Neon standar */
-
-            /* HAPUS GLOW BIAR TAJAM (CLEAN) */
-            text-shadow: none;
-
-            font-weight: 800;
+        /* Teks Highlight Hijau */
+        .highlight-text {
+            color: var(--primary-green);
+            font-weight: 700;
         }
 
-        /* Kartu Kaca (Glassmorphism) - Model yang lu suka */
-        .glass-card {
-            background: var(--glass-white);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            /* Sudut Tumpul (Rounded) */
-            padding: 25px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+        /* KARTU BERSIH (CLEAN CARD) */
+        .clean-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            height: 100%;
         }
 
-        .glass-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--neon-green);
-            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.15);
-            /* Glow Hijau Halus */
+        .clean-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-green);
+            /* Border jadi hijau pas hover */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
+        /* GAMBAR FIX (Anti Zoom Aneh) */
         .card-img-custom {
-            border-radius: 15px;
+            border-radius: 8px;
             width: 100%;
-            height: 220px;
+            height: auto;
+            aspect-ratio: 16/9;
+            /* Wajib Landscape */
             object-fit: cover;
             margin-bottom: 20px;
-            opacity: 0.9;
-            transition: 0.4s;
-        }
-
-        .glass-card:hover .card-img-custom {
             opacity: 1;
-            transform: scale(1.02);
-            /* Zoom dikit pas hover */
+            border: 1px solid var(--border-color);
+            /* Tambah border tipis di gambar biar rapi */
         }
 
-        /* Skill Bar Hijau */
+        /* Skill Bar */
         .progress {
-            height: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            height: 6px;
+            background-color: #374151;
+            border-radius: 50px;
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #00b02c, #00ff41);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-        }
-
-        /* Tombol Modern Glow */
-        .btn-glow {
-            background: transparent;
-            /* Latar transparan */
-            border: 2px solid #00ff41;
-            /* Garis pinggir hijau neon */
-            color: #00ff41;
-            /* Teks hijau */
-            padding: 12px 35px;
+            background-color: var(--primary-green);
             border-radius: 50px;
-            font-weight: 700;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
-            /* Glow tipis banget */
         }
 
-        .btn-glow:hover {
-            background: #00ff41;
-            /* Pas di-hover baru jadi hijau blok */
-            color: black;
-            /* Teks jadi hitam pas hover */
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+        /* Tombol Utama (Solid) */
+        .btn-clean {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
         }
 
-        /* Ikon Hover */
-        .hover-neon:hover {
-            color: var(--neon-green) !important;
-            transform: translateY(-5px);
-            transition: 0.3s;
-            text-shadow: 0 0 15px var(--neon-green);
+        .btn-clean:hover {
+            background-color: #2e6346;
+            /* Jadi lebih gelap dikit pas hover */
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Tombol Outline */
+        .btn-outline-clean {
+            border: 1px solid var(--primary-green);
+            color: var(--primary-green);
+            background: transparent;
+            padding: 8px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .btn-outline-clean:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        /* Skill Tag (Label Kecil) */
+        .skill-tag {
+            background-color: rgba(58, 125, 88, 0.15);
+            /* Hijau transparan */
+            color: #4ade80;
+            /* Teks hijau agak terang biar kebaca di dark mode */
+            border: 1px solid rgba(58, 125, 88, 0.3);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            color: var(--text-muted);
+        }
+
+        .social-icon {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+
+        .social-icon:hover {
+            color: var(--primary-green);
         }
     </style>
 </head>
@@ -147,8 +175,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-white" href="#">My<span
-                    style="color:var(--neon-green)">Portofolio</span></a>
+            <a class="navbar-brand fw-bold text-white" href="#">My<span class="highlight-text">Portofolio</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -157,8 +184,8 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-outline-light btn-sm ms-3 rounded-pill px-4"
-                            href="#contact" style="border-color:var(--neon-green); color:var(--neon-green);">Contact</a>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-outline-clean" href="#contact">Contact Me</a>
                     </li>
                 </ul>
             </div>
@@ -167,70 +194,74 @@
 
     <section id="home" class="hero-section text-center">
         <div class="container" data-aos="fade-up">
-            <span class="badge rounded-pill border border-success text-success px-3 py-2 mb-3 bg-black">Available for
-                Hire</span>
-            <h1 class="display-3 fw-bold mb-4">Hi, I'm <span class="gradient-text">Irawan Rofi Hidayat</span></h1>
-            <p class="lead mb-5 text-secondary w-75 mx-auto">
-                Mengubah data mentah menjadi <span class="text-white">Solusi Cerdas</span> dengan kekuatan
-                <strong style="color:var(--neon-green)">Python</strong> & <strong style="color:var(--neon-green)">Excel
-                    Automation</strong>.
+            <span class="badge bg-secondary bg-opacity-25 text-light px-3 py-2 mb-4 fw-normal border border-secondary">
+                Open to Work
+            </span>
+            <h1 class="display-4 fw-bold mb-4 text-white">Hi, I'm <span class="highlight-text">Irawan Rofi Hidayat</span>
+            </h1>
+            <p class="lead mb-5 mx-auto" style="max-width: 600px; color: var(--text-muted);">
+                Data Specialist & Fullstack Developer. Transforming complex data into
+                <span class="text-white">Actionable Insights</span> & <span class="text-white">Robust Apps</span>.
             </p>
-            <a href="#portfolio" class="btn btn-glow">Lihat Project <i class="fas fa-arrow-right ms-2"></i></a>
+            <a href="#portfolio" class="btn btn-clean">View Projects <i class="fas fa-arrow-right ms-2"></i></a>
 
-            <div class="mt-5 pt-4 d-flex justify-content-center gap-4 text-secondary fs-2">
-                <i class="fab fa-python hover-neon" title="Python"></i>
-                <i class="fas fa-database hover-neon" title="Data"></i>
-                <i class="fas fa-chart-line hover-neon" title="Analytics"></i>
-                <i class="fas fa-robot hover-neon" title="Automation"></i>
+            <div class="mt-5 pt-4 d-flex justify-content-center gap-5" style="color: #4b5563; font-size: 2rem;">
+                <i class="fab fa-python" title="Python"></i>
+                <i class="fas fa-database" title="Data"></i>
+                <i class="fas fa-chart-bar" title="Analytics"></i>
+                <i class="fab fa-react" title="React"></i>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-5 mt-5">
+    <section id="about" class="py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-5 mb-4 text-center" data-aos="fade-right">
                     <div style="display: inline-block; position: relative;">
                         <img src="profil.jpg" class="img-fluid shadow-lg" alt="Profile" style="
-                height: 550px; /* Sedikit lebih tinggi biar proporsional */
-                width: auto;
-                object-fit: cover;
-                border-radius: 1000px; /* Ini rahasianya biar jadi kapsul sempurna */
-                border: 2px solid var(--neon-green); /* List hijau tipis */
-                box-shadow: 0 0 25px rgba(0, 255, 65, 0.2); /* Glow di sekeliling */">
+                            height: 550px; /* Tinggi biar jadi kapsul */
+                            width: auto;
+                            object-fit: cover;
+                            border-radius: 1000px; /* Ini kunci bentuk kapsulnya */
+                            border: 4px solid var(--card-bg); /* Border dalam warna kartu biar rapi */
+                            outline: 2px solid var(--primary-green); /* List luar hijau kalem */
+                            box-shadow: 0 0 30px rgba(58, 125, 88, 0.25); /* Glow hijau tipis elegan */
+                        ">
                     </div>
                 </div>
                 <div class="col-md-7 ps-md-5" data-aos="fade-left">
-                    <h2 class="fw-bold mb-4">About <span style="color:var(--neon-green)">Me</span></h2>
+                    <h2 class="fw-bold mb-4 text-white">About <span class="highlight-text">Me</span></h2>
                     <p class="text-secondary">
-                        Saat ini saya magang di <strong>PT Natural Nusantara (NASA)</strong> sebagai IT Support & Data
+                        Saat ini saya berkarya di <strong>PT Natural Nusantara (NASA)</strong> sebagai IT Support & Data
                         Specialist.
-                        Saya fokus mengembangkan <em>automated tools</em> untuk mempermudah monitoring harga pasar dan
-                        analisis kompetitor.
+                        Saya menggabungkan kemampuan analisis data dengan pemrograman untuk menciptakan alat automasi
+                        yang efisien.
                     </p>
                     <p class="text-secondary mb-4">
-                        Di luar pekerjaan, saya mengembangkan brand <strong>"Tarenee"</strong> dan terus mengasah skill
-                        Fullstack Web dengan Python Flask.
+                        Di waktu luang, saya membangun brand <strong>"Tarenee"</strong> dan terus mengasah skill
+                        Fullstack Development (React & Python) untuk membangun solusi web modern.
                     </p>
 
                     <div class="mt-4">
-                        <div class="d-flex justify-content-between mb-1"><small>Excel Analytics & Dashboard</small>
-                            <small style="color:var(--neon-green)">95%</small>
+                        <div class="d-flex justify-content-between mb-1 text-white"><small>Excel & Dashboarding</small>
+                            <small>95%</small>
                         </div>
                         <div class="progress mb-4">
                             <div class="progress-bar" style="width: 95%"></div>
                         </div>
 
-                        <div class="d-flex justify-content-between mb-1"><small>Python (Selenium/Pandas)</small> <small
-                                style="color:var(--neon-green)">80%</small></div>
+                        <div class="d-flex justify-content-between mb-1 text-white"><small>Python Automation</small>
+                            <small>80%</small>
+                        </div>
                         <div class="progress mb-4">
                             <div class="progress-bar" style="width: 80%"></div>
                         </div>
 
-                        <div class="d-flex justify-content-between mb-1"><small>Web Scraping</small> <small
-                                style="color:var(--neon-green)">90%</small></div>
+                        <div class="d-flex justify-content-between mb-1 text-white"><small>Fullstack
+                                (FastAPI/React)</small> <small>75%</small></div>
                         <div class="progress mb-4">
-                            <div class="progress-bar" style="width: 90%"></div>
+                            <div class="progress-bar" style="width: 75%"></div>
                         </div>
                     </div>
                 </div>
@@ -241,95 +272,106 @@
     <section id="portfolio" class="py-5">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="fw-bold text-white">My <span class="gradient-text">Project</span></h2>
-                <p class="text-white-50">Proyek unggulan yang menggabungkan Data & Code.</p>
+                <h2 class="fw-bold text-white">Featured <span class="highlight-text">Projects</span></h2>
+                <p style="color: var(--text-muted);">Portofolio project Data Science & Web Development.</p>
             </div>
 
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="glass-card h-100">
+            <div class="row g-4">
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="clean-card">
                         <img src="project_1.png" class="card-img-custom" alt="Project 1">
-
-                        <h4 class="fw-bold mt-2 text-white">MarketGuard Analytics</h4>
+                        <h5 class="fw-bold text-white">MarketGuard Analytics</h5>
                         <div class="mb-3">
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 rounded-pill me-1">Excel
-                                Expert</span>
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 rounded-pill">Pivot
-                                Table</span>
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">Pivot Table</span>
+                            <span class="skill-tag">VLOOKUP</span>
                         </div>
-                        <p class="text-light small opacity-75">
-                            Dashboard monitoring harga otomatis untuk mendeteksi reseller yang menjual di bawah harga
-                            pasar (Undercutting). Menggunakan <strong>Advanced Excel Formula</strong> untuk zonasi
-                            wilayah dan <strong>Conditional Formatting</strong> untuk peringatan dini.
+                        <p class="text-secondary small">
+                            Dashboard monitoring harga otomatis untuk mendeteksi undercut reseller. Visualisasi data
+                            real-time untuk keputusan bisnis cepat.
                         </p>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="glass-card h-100">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="clean-card">
                         <img src="project_2.png" class="card-img-custom" alt="Project 2">
-
-                        <h4 class="fw-bold mt-2 text-white">Competitor Intel Bot</h4>
+                        <h5 class="fw-bold text-white">Competitor Intel Bot</h5>
                         <div class="mb-3">
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 rounded-pill me-1">Python</span>
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 rounded-pill">Selenium</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">Data Crawling</span>
                         </div>
-                        <p class="text-light small opacity-75">
-                            Bot automasi cerdas yang mampu mengambil (crawling) ribuan data produk kompetitor dari
-                            Shopee & Tokopedia secara <strong>Real-Time</strong>. Data otomatis dibersihkan dan diekspor
-                            ke format CSV siap olah.
+                        <p class="text-secondary small">
+                            Bot automasi yang mengambil ribuan data produk kompetitor dari marketplace secara Real-Time
+                            dan mengekspornya ke format siap olah.
                         </p>
                     </div>
                 </div>
 
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="glass-card h-100">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="clean-card">
                         <img src="project_3.jpg" class="card-img-custom" alt="Project 3">
-
-                        <h4 class="fw-bold mt-2 text-white">Auto-Captcha Breaker</h4>
+                        <h5 class="fw-bold text-white">Auto-Captcha Breaker</h5>
                         <div class="mb-3">
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 rounded-pill me-1">AI
-                                / ML</span>
-                            <span
-                                class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-25 rounded-pill">YOLOv8</span>
+                            <span class="skill-tag">AI / ML</span>
+                            <span class="skill-tag">YOLOv8</span>
+                            <span class="skill-tag">Computer Vision</span>
                         </div>
-                        <p class="text-light small opacity-75">
-                            Pengembangan model AI menggunakan algoritma <strong>YOLOv8</strong> yang dilatih khusus
-                            untuk mengenali dan menyelesaikan kode keamanan (Captcha) secara otomatis dengan akurasi
-                            tinggi.
+                        <p class="text-secondary small">
+                            Model AI custom berbasis YOLOv8 yang dilatih khusus untuk mengenali dan memecahkan kode
+                            Captcha secara otomatis dengan akurasi tinggi.
                         </p>
                     </div>
                 </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="clean-card">
+                        <img src="project_4.png" class="card-img-custom" alt="Project 4">
+                        <h5 class="fw-bold text-white">TaskFlow System</h5>
+                        <div class="mb-3">
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">SQLite</span>
+                        </div>
+                        <p class="text-secondary small">
+                            Aplikasi manajemen tugas Fullstack. Frontend React modern berinteraksi dengan Backend Python
+                            FastAPI yang cepat dan aman.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-5 text-center">
+    <section id="contact" class="py-5 text-center mt-5">
         <div class="container" data-aos="zoom-in">
-            <div class="glass-card p-5 mx-auto" style="max-width: 700px;">
-                <h2 class="fw-bold mb-3">Siap Berkolaborasi?</h2>
-                <p class="text-secondary mb-4">Saya selalu terbuka untuk diskusi mengenai automasi data dan web
-                    development.</p>
-                <a href="mailto:irawanrofih@gmail.com" class="btn btn-glow px-5">
-                    Hubungi Saya
+            <div class="clean-card p-5 mx-auto text-center" style="max-width: 700px;">
+                <h2 class="fw-bold mb-3 text-white">Let's Connect</h2>
+                <p class="text-secondary mb-4">
+                    Tertarik diskusi soal automasi data atau pengembangan web? Kirim email atau sapa saya di sosial media.
+                </p>
+                <a href="mailto:irawanrofih@gmail.com" class="btn btn-clean px-5">
+                    Email Saya
                 </a>
 
                 <div class="mt-5 d-flex justify-content-center gap-4">
-                    <a href="#" class="text-secondary fs-3 hover-neon"><i class="fab fa-github"></i></a>
-                    <a href="#" class="text-secondary fs-3 hover-neon"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="text-secondary fs-3 hover-neon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-4 text-secondary small">
-        &copy; 2026 My Portofolio. Built with <i class="fas fa-bolt text-warning"></i> & Bootstrap 5.
+    <footer class="text-center py-4">
+        <div class="container">
+            <small class="text-secondary">
+                &copy; 2026 Irawan Rofi Hidayat. Built with Bootstrap 5.
+            </small>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
